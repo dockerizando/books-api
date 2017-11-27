@@ -5,6 +5,8 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
+var os = require('os');
+
 app.start = function() {
   // start the web server
   return app.listen(function() {
@@ -15,6 +17,11 @@ app.start = function() {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
       console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
     }
+    app.get('/os', function(req, res) {
+      res.send({
+        hostname: os.hostname(),
+      });
+    });
   });
 };
 

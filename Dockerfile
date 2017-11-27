@@ -6,8 +6,8 @@ WORKDIR /api
 
 RUN yarn
 
-ADD . /api
-
 EXPOSE 3000
 
 CMD [ "node", "." ]
+
+ADD . /api
